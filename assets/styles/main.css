@@ -246,7 +246,10 @@ main > div {
     }
 
     .result {
-        padding-top: .5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 0;
         align-content: center;
     }
 
@@ -264,7 +267,6 @@ main > div {
     }
 
     .summary {
-        padding-top: 1rem;
         gap: min(2vh, 3vh);
     }
 
