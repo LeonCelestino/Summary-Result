@@ -11,12 +11,22 @@
     --primary-cobalt-blue: hsla(234, 85%, 45%, 0.064);
     --gradient-light-slate-blue: hsl(252, 100%, 67%);
     --gradient-light-royal-blue: hsl(241, 81%, 54%);
-    --gradient-violet-blue: hsla(256, 72%, 46%, 1);
+    --gradient-violet-blue: hsl(256, 72%, 46%);
     --gradient-persian-blue: hsl(241, 72%, 46%);
     --neutral-white: hsl(0, 0%, 100%);
     --neutral-pale-blue: hsl(221, 100%, 96%);
     --neutral-light-lavender: hsl(241, 100%, 89%);
     --neutral-dark-gray-blue: hsl(224, 30%, 27%);
+
+    --gradient-primary: linear-gradient(
+        var(--gradient-light-slate-blue),
+        var(--gradient-light-royal-blue)
+    );
+
+    --gradient-to-transparent: linear-gradient(
+        var(--gradient-violet-blue),
+        hsl(241, 72%, 46%, 0)
+    );
 }
 
 html {
@@ -32,19 +42,14 @@ html {
 }
 
 body {
-    display: grid;
-    grid-template-rows: 100% 10px;
-    place-items: center;
-
     min-height: 100vh;
-    padding-block: 1vw;
+    width: 100%;
 
     background: var(--neutral-pale-blue);
 }
 
 main {
-    display: flex;
-
+    display: grid;
     width: 55rem;
     height: 40rem;
     border-radius: 15px;
@@ -53,21 +58,39 @@ main {
     background: var(--neutral-white);
 }
 
+@media (min-width: 600px) {
+   body {
+        display: grid;
+        grid-template-rows: 100% 10px;
+        place-items: center;
+        padding-block: 1rem;
+   } 
+
+   main { 
+    grid-template-columns: 1fr 1fr; 
+    }
+
+    main > div {
+        height: 100%;
+        border-radius: 15px;
+        padding-top: 4rem;
+        height: 100%;
+    }
+}
+
 main > div {
-    width: 27.5rem;
-    height: 100%;
     border-radius: 15px;
-    padding-block: 4rem;
+    padding-top: 4rem;
 }
 
 .result {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    align-content: start;
+    gap: 2rem;
+    place-items: center;
+    background: var(--gradient-primary);
 
-    background: var(--gradient-light-royal-blue);
-
+    text-align: center;
     color: var(--neutral-white);
 }
 
@@ -80,16 +103,16 @@ main > div {
 .result .summary-result {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    width: 60%;
-    height: 50%;
+    width: 50%;
     border-radius: 50%;
-    background: linear-gradient(to bottom, var(--gradient-persian-blue) 10%, var(--gradient-light-royal-blue) 60%);
+    aspect-ratio: 1 / 1;
+    background: var(--gradient-to-transparent);
+    
 }
 
 .result .summary-result h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
 }
 
 .summary-result span {
@@ -103,7 +126,6 @@ main > div {
 
 .result p {
     font-size: 1.4rem;
-    text-align: center;
     width: 65%;
     color: rgba(255,255,255,0.6);
 }
@@ -113,11 +135,13 @@ main > div {
 }
 
 .summary {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: grid;
+    align-content: start;
+    gap: 1.5rem;
 
-    padding-left: 3rem;
+    padding-inline: 3rem;
+    padding-bottom: 0;
+    
 }
 
 .summary h3 {
@@ -131,10 +155,10 @@ main > div {
     align-items: center;
     grid-template-columns: 20px;
 
-    width: 90%;
     padding-block: 1.2rem;
     padding-inline: 1rem;
     border-radius: 8px;
+
 
     font-size: 1.1rem;
     font-weight: 700;
@@ -194,70 +218,63 @@ main > div {
 
 .summary .send-score {
     display: block;
-    width: 90%;
-    padding-block: 1.2rem;
+    padding: 1rem 2rem;
     border-radius: 20px;
     background: var(--neutral-dark-gray-blue);
     color: white;
+    cursor: pointer;
 }
 
-@media (max-width: 590px) {
-    body {
-        align-items: center;
-        justify-content: center;
-        padding-block: 0;
-        grid-template-columns: 100%;
-        gap: 0;
-    }
+.summary .send-score:hover, 
+.summary .send-score:focus-visible {
+    background: var(--gradient-primary);
+}
 
+@media (max-width: 600px) {
     main {
         width: 100%;
-        height: 100%;
-        flex-direction: column;
+        height: 100vh;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
     main > div {
         width: 100%;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
+
     }
 
     .result {
-        height: 400px;
-        padding-top: 1rem;
-        padding-bottom: 3rem;
+        padding-top: .5rem;
+        align-content: center;
     }
 
     .result h3 {
-        font-size: 2.5rem;
+        font-size: min(4.18vw, 3rem);
     }
 
+    .result p {
+        font-size: min(4.18vw, 1.5rem);
+        max-width: 258px;
+    }
 
     .result .summary-result {
-        width: 250px;
-        height: 250px;
-        margin-top: 15px;
-        background: linear-gradient(to bottom, var(--gradient-persian-blue) 10%, var(--gradient-light-royal-blue) 80%);
+        width: min(15rem, 50%);
     }
-    
-    .result .summary-result h1 {
-        font-size: 5.5rem;
-    }
-    
-    .summary-result span {
-        font-size: 1.6rem;
-    }
-    
-    .result h2 {
-        font-size: 3rem;
-    } 
-    
-    .result p {
-        font-size: 1.5rem;
+
+    .summary {
+        padding-top: 1rem;
+        gap: min(2vh, 3vh);
+        align-content: center;
     }
 
     .attribution {
         position: absolute;
-        bottom: 5px;
+        width: 100%;
+        text-align: center;
+        bottom: 0;
+        font-size: 1.2vh;
+
     }
 }
