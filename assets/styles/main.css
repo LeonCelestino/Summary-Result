@@ -266,7 +266,6 @@ main > div {
     .summary {
         padding-top: 1rem;
         gap: min(2vh, 3vh);
-        align-content: center;
     }
 
     .attribution {
