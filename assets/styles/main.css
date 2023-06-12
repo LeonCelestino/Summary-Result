@@ -289,7 +289,6 @@ main > div {
     }
 
     .summary .score-box {
-        padding-inline: 0;
         padding-block: max(3vw, min(3vh, 1rem));
         font-size: 1.34rem;
     }
