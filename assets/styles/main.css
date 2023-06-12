@@ -252,12 +252,11 @@ main > div {
     .result {
         height: 45%;
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        padding-top: 0;
+        flex-direction: column;
+        padding-top: 1rem;
         align-content: center;
-        padding-bottom: max(2rem, 1vh);
-        gap: 1rem;
+        gap: 2rem;
     }
 
     .result h3 {
@@ -265,7 +264,7 @@ main > div {
     }
 
     .result .summary-result h1 {
-        font-size: max(4.18vw, 4rem);
+        font-size: max(4.18vw, 5rem);
     }
 
     .result p {
@@ -274,7 +273,7 @@ main > div {
     }
 
     .result .summary-result {
-        width: max(15rem, 40%);
+        width: max(10rem, 30%);
     }
 
     .summary {
@@ -283,7 +282,7 @@ main > div {
         justify-content: space-around;
         flex: 1;
         gap: 2.5vh;
-        padding-bottom: 1rem;
+        padding-block: 1rem;
     }
 
     .summary h3 {
