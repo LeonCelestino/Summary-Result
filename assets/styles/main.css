@@ -288,6 +288,14 @@ main > div {
         font-size: max(4.18vw, 2.3rem);
     }
 
+    .summary .score-box {
+        padding-inline: 0;
+        padding-block: max(3vw, min(3vh, 1rem));
+        font-size: 1.34rem;
+    }
+
+    
+
     .attribution {
         position: absolute;
         width: 100%;
