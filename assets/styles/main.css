@@ -278,10 +278,12 @@ main > div {
     }
 
     .summary {
-        padding-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         flex: 1;
-        align-content: center;
         gap: 2.5vh;
+        padding-bottom: 1rem;
     }
 
     .summary h3 {
@@ -290,10 +292,12 @@ main > div {
 
     .summary .score-box {
         padding-block: max(3vw, min(3vh, 1rem));
-        font-size: 1.34rem;
+        font-size: max(3.5vw, 1.34rem);
     }
 
-    
+    .summary .score-box .score {
+        font-size: max(3.2vw, 1.34rem);;
+    }
 
     .attribution {
         position: absolute;
