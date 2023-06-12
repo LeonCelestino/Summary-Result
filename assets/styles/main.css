@@ -233,6 +233,8 @@ main > div {
 
 @media (max-width: 600px) {
     main {
+        display: flex;
+        flex-direction: column;
         width: 100%;
         height: 100%;
         border-bottom-left-radius: 0;
@@ -243,32 +245,47 @@ main > div {
         width: 100%;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
+        padding-top: 0;
 
     }
 
     .result {
+        height: 45%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         padding-top: 0;
         align-content: center;
+        padding-bottom: max(2rem, 1vh);
+        gap: 1rem;
     }
 
     .result h3 {
-        font-size: min(4.18vw, 3rem);
+        font-size: max(4.18vw, 2.3rem);
+    }
+
+    .result .summary-result h1 {
+        font-size: max(4.18vw, 4rem);
     }
 
     .result p {
-        font-size: min(4.18vw, 1.5rem);
-        max-width: 258px;
+        font-size: min(4.18vw, 2rem);
+        width: max(70%, 268px);
     }
 
     .result .summary-result {
-        width: min(15rem, 50%);
+        width: max(15rem, 40%);
     }
 
     .summary {
-        gap: min(2vh, 3vh);
+        padding-top: 1rem;
+        flex: 1;
+        align-content: center;
+        gap: 2.5vh;
+    }
+
+    .summary h3 {
+        font-size: max(4.18vw, 2.3rem);
     }
 
     .attribution {
@@ -278,5 +295,9 @@ main > div {
         bottom: 0;
         font-size: 1.2vh;
 
+    }
+
+    .summary .send-score {
+        padding-block: 1.5rem;
     }
 }
