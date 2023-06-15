@@ -238,7 +238,6 @@ main {
     main {
         display: flex;
         flex-direction: column;
-        min-height: 98vh;
     }
 
     main > div {
