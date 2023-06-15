@@ -1,9 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap');
-/* 
-- Light red: hsl(0, 100%, 67%)
-- Orangey yellow: hsl(39, 100%, 56%)
-- Green teal: hsl(166, 100%, 37%)
-- Cobalt blue: hsl(234, 85%, 45%) */
+/* @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap'); */
+
+@font-face {
+    font-family: "HankenGrotesk";
+    font-display: swap;
+    font-weight: 100 900;
+    src: url('assets/fonts/HankenGrotesk-VariableFont_wght.ttf') format('truetype');
+}
+
 :root {
     --primary-light-red: hsla(0, 100%, 67%, 0.064);
     --primary-orangey-yellow: hsla(39, 100%, 56%, 0.064);
@@ -30,7 +33,6 @@
 }
 
 html {
-    font-size: 62.5%;
     font-family: 'Hanken Grotesk', sans-serif;;
 }
 
@@ -43,92 +45,97 @@ html {
 
 body {
     min-height: 100svh;
-    height: 100svh;
     width: 100%;
 
-    background: var(--neutral-pale-blue);
 }
 
 main {
-    display: grid;
-    width: 55rem;
-    height: 40rem;
-    border-radius: 15px;
-    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
-    
     background: var(--neutral-white);
 }
 
-@media (min-width: 600px) {
+@media (width > 37.5rem) {
    body {
         display: grid;
         grid-template-rows: 100% 10px;
         place-items: center;
         padding-block: 1rem;
+        background: var(--neutral-pale-blue);
    } 
 
    main { 
-    grid-template-columns: 1fr 1fr; 
+        grid-template-columns: 1fr 1fr; 
+        display: grid;
+        max-width: 34.375rem;
+        border-radius: 15px;
+        box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
     }
 
     main > div {
-        height: 100%;
         border-radius: 15px;
-        padding-top: 4rem;
-        height: 100%;
+        padding-block: 2rem;
     }
-}
 
-main > div {
-    border-radius: 15px;
-    padding-top: 4rem;
+    .result { 
+        padding-inline: 2.4rem;
+        gap: 1rem;
+    }
+
+    .summary {
+        justify-content: space-between;
+        padding-inline: 1.5rem;
+    }
 }
 
 .result {
     display: grid;
-    align-content: start;
-    gap: 2rem;
+    align-content: center;
     place-items: center;
-    background: var(--gradient-primary);
-
     text-align: center;
     color: var(--neutral-white);
-}
-
-.result h3 {
-    font-size: 1.8rem;
-    font-weight: 300;
-    color: rgba(255,255,255,0.6);
+    background: var(--gradient-primary);
 }
 
 .result .summary-result {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 50%;
+    display: grid;
+    align-content: center;
+    width: 9rem;
     border-radius: 50%;
     aspect-ratio: 1 / 1;
     background: var(--gradient-to-transparent);
     
 }
 
-.result .summary-result h1 {
-    font-size: 3.5rem;
+.result .summary-result p {
+    width: 100%;
+    font-size: 3rem;
+    font-weight: 800;
+
+    color: #fff;
+
+    line-height: 1;
 }
 
-.summary-result span {
-    font-size: 1.2rem;
+.summary-result p:last-child {
+    font-size: .8rem;
+    font-weight: 300;
     color: rgba(255,255,255,0.6);
 }
 
 .result h2 {
-    font-size: 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
 } 
 
-.result p {
-    font-size: 1.4rem;
-    width: 65%;
+.result h3 {
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+
+.scored-msg {
+    font-size: .9rem;
     color: rgba(255,255,255,0.6);
+    max-width: 12.8rem;
 }
 
 .attribution {
@@ -136,18 +143,21 @@ main > div {
 }
 
 .summary {
-    display: grid;
-    align-content: start;
-    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
 
-    padding-inline: 3rem;
-    padding-bottom: 0;
     
 }
 
-.summary h3 {
-    font-size: 1.8rem;
+.summary h2 {
+    font-size: 1.1rem;
 
+}
+
+.summary .summary-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: .9rem;
 }
 
 .summary .score-box {
@@ -156,12 +166,12 @@ main > div {
     align-items: center;
     grid-template-columns: 20px;
 
-    padding-block: 1.2rem;
+    padding-block: .7rem;
     padding-inline: 1rem;
     border-radius: 8px;
 
 
-    font-size: 1.1rem;
+    font-size: .8rem;
     font-weight: 700;
 }
 
@@ -169,38 +179,36 @@ main > div {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80%;
     align-self: center;
 }
 
 .summary .score-box .icon img {
-    height: 15px;
+    width: 1rem;
 }
 
 .summary .summary-item {
-    margin-left: .5rem;
+    margin-left: .3rem;
 }
 
-.summary .score-box:nth-child(2) {
+.summary .score-box:nth-child(1) {
     background-color: var(--primary-light-red);
     color: hsl(0, 100%, 67%);
 
 }
 
-.summary .score-box:nth-child(3) {
+.summary .score-box:nth-child(2) {
     background-color: var(--primary-orangey-yellow);
     color: hsl(39, 100%, 56%);
 }
 
-.summary .score-box:nth-child(4) {
+.summary .score-box:nth-child(3) {
     background-color: var(--primary-green-teal);
     color: hsl(166, 100%, 37%);
 }
 
-.summary .score-box:nth-child(5) {
+.summary .score-box:nth-child(4) {
     background-color: var(--primary-cobalt-blue);
     color: hsl(234, 85%, 45%);
-    margin-bottom: 2rem;
 }
 
 .summary .score-box .score {
@@ -208,7 +216,7 @@ main > div {
     justify-self: flex-end;
     gap: .4rem;
 
-    font-size: 1.2rem;
+    font-size: .8rem;
     font-weight: 700;
     color: hsla(228, 26%, 19%, 0.48)
 }
@@ -219,11 +227,13 @@ main > div {
 
 .summary .send-score {
     display: block;
-    padding: 1rem 2rem;
-    border-radius: 20px;
+    padding-block: .7rem;
+    border-radius: 100vw;
     background: var(--neutral-dark-gray-blue);
     color: white;
     cursor: pointer;
+
+    
 }
 
 .summary .send-score:hover, 
@@ -231,83 +241,63 @@ main > div {
     background: var(--gradient-primary);
 }
 
-@media (max-width: 600px) {
+@media (width < 37.5rem) {
     main {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        height: 100%;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+        min-height: 98vh;
     }
 
     main > div {
-        width: 100%;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
         padding-top: 0;
 
     }
 
     .result {
-        height: 45%;
         display: flex;
         justify-content: center;
         flex-direction: column;
-        padding-top: 1rem;
         align-content: center;
-        gap: 2rem;
-    }
+        gap: 1rem;
+        padding-block: 2rem;
 
-    .result h3 {
-        font-size: max(4.18vw, 2.3rem);
-    }
-
-    .result .summary-result h1 {
-        font-size: max(4.18vw, 5rem);
-    }
-
-    .result p {
-        font-size: min(4.18vw, 2rem);
-        width: max(70%, 268px);
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
     }
 
     .result .summary-result {
-        width: max(10rem, 30%);
+        width: 7.81rem;
     }
 
     .summary {
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
         flex: 1;
-        gap: 2.5vh;
-        padding-block: 1rem;
+        padding: 1.2rem 1rem 1rem 1rem;
+        gap: 1.5rem;
     }
 
-    .summary h3 {
-        font-size: max(4.18vw, 2.3rem);
+    .summary .summary-items-list {
+        gap: 2rem;
     }
 
     .summary .score-box {
-        padding-block: max(3vw, min(3vh, 1rem));
-        font-size: max(3.5vw, 1.34rem);
+        gap: 1rem;
+        font-size: 1rem;
+        padding-block: 1rem;
     }
 
-    .summary .score-box .score {
-        font-size: max(3.2vw, 1.34rem);;
+    .summary .score-box .icon img {
+        display: block;
+        width: 2rem;
     }
 
-    .attribution {
-        position: absolute;
-        width: 100%;
-        text-align: center;
-        bottom: 0;
-        font-size: 1.2vh;
-
+    .summary .score {
+        font-size: 1rem;
     }
 
     .summary .send-score {
-        padding-block: 1.5rem;
+        padding-block: 1.2rem;
+        font-size: 1rem;
+        font-weight: 700;
     }
 }

@@ -3,11 +3,11 @@ const scoreBox = document.querySelectorAll(".score-box");
 const updateScoreBox = (data) => {
     scoreBox.forEach((item, index) => {
         item.innerHTML = `
-        <span class="icon"><img src="${data[index].icon}" alt="reaction"></span>
-        <span class="summary-item">${data[index].category}</span>
-        <span class="score">
+        <span class="icon"><img src="${data[index].icon}" alt=""></span>
+        <p class="summary-item">${data[index].category}</p>
+        <p class="score">
             <span class="out-of-hundred">${data[index].score}</span>/<span class="hundred">100</span>
-        </span>
+        </p>
         `
     })
 }
