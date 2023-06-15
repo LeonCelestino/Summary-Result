@@ -1,11 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap'); */
-
-@font-face {
-    font-family: "HankenGrotesk";
-    font-display: swap;
-    font-weight: 100 900;
-    src: url('assets/fonts/HankenGrotesk-VariableFont_wght.ttf') format('truetype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap'); 
 
 :root {
     --primary-light-red: hsla(0, 100%, 67%, 0.064);
@@ -273,7 +266,7 @@ main {
         display: flex;
         flex: 1;
         padding: 1.2rem 1rem 1rem 1rem;
-        gap: 1.5rem;
+        gap: 2rem;
     }
 
     .summary .summary-items-list {
